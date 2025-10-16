@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Email Sender App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <nav>
+            <a href="/change-password">Change Password</a> |
+            <a href="/logout">Logout</a>
+        </nav>
+        <% if (error) { %>
+            <p class="error">
+                <%= error %>
+            </p>
+            <% } %>
+                <% if (success) { %>
+                    <p class="success">
+                        <%= success %>
+                    </p>
+                    <% } %>
+                        <form action="/send-email" method="POST">
+                            <label for="senderName">Sender Name (optional):</label>
+                            <input type="text" id="senderName" name="senderName" placeholder="Your Name">
+                            <label for="receivers">Receiver Emails (comma-separated):</label>
+                            <input type="text" id="receivers" name="receivers"
+                                placeholder="email1@example.com, email2@example.com">
+                            <label for="csvFile">Or upload CSV file (emails in first column):</label>
+                            <input type="file" id="csvFile" name="csvFile" accept=".csv">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="messageType">Message Type:</label>
+                            <select id="messageType" name="messageType">
+                                <option value="text">Text</option>
+                                <option value="html">HTML</option>
+                            </select>
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <button type="submit">Send Email</button>
+                        </form>
+    </div>
+</body>
+
+</html>
