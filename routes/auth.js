@@ -14,7 +14,7 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res) => {
   const { username, password, emailUser, emailPass } = req.body;
   // Dummy login without DB
-  if (username === "RohitRPokalwar" && password === "8600") {
+  if (username === "RohitRPokalwar" && password === "860088") {
     req.session.userId = "dummy";
     req.session.emailUser = emailUser;
     req.session.emailPass = emailPass;
